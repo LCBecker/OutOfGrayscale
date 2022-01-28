@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Out of Grayscale
+
+A simple project to colorize SVGs using React and Chakra UI.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
