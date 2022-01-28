@@ -1,4 +1,5 @@
-import { Button } from '@chakra-ui/react';
+import { Box, Button, Flex, Spacer } from '@chakra-ui/react';
+
 import Palette from './components/Palette';
 import SimpleFlower from './templates/SimpleFlower';
 import { useState } from 'react';
@@ -18,13 +19,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div className="template">
+    <Flex direction="row">
+      <Box className="template">
         <SimpleFlower fillColors={fillColors} onFill={onFillColor} />
-      </div>
-      <Button colorScheme={'blue'} onClick={resetTemplate}>Reset</Button>
-      <Palette currentColor={currentColor} changeColor={setCurrentColor} />
-    </div>
+      </Box>
+      <Spacer />
+      <Box p='20px 50px'>
+        <Palette currentColor={currentColor} changeColor={setCurrentColor} />
+        <Button colorScheme={'blue'} onClick={resetTemplate} mt='10px'>Reset</Button>
+      </Box>
+    </Flex>
   );
 }
 

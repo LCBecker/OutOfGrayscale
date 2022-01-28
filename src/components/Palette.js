@@ -1,17 +1,17 @@
+import { Box, SimpleGrid } from '@chakra-ui/react';
+
 const Palette = ({ currentColor, changeColor }) => {
   const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'turquoise', 'purple', 'pink', 'deeppink'];
 
   return (
-    <div className="palette" style={{ display: 'flex' }}>
+    <SimpleGrid minChildWidth='50px' spacing='10px'>
       {colors.map(color => {
         const isActive = currentColor === color;
         return (
-          <div onClick={() => { changeColor(color) }}>
-            <div className={`color-swatch ${color}`} style={{ backgroundColor: color, width: '50px', height: '50px', margin: '0px 5px', border: isActive ? '1px solid black' : null }}></div>
-          </div>
+          <Box bg={color} height='50px' onClick={() => changeColor(color)} border={isActive ? '5px solid black' : null} />
         )
       })}
-    </div>
+    </SimpleGrid>
   )
 };
 
