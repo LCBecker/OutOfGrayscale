@@ -1,12 +1,20 @@
-import { Box, Button, Flex, Spacer } from '@chakra-ui/react';
+import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
 
-import Palette from './components/Palette';
-import SimpleFlower from './templates/SimpleFlower';
-import { useState } from 'react';
+import Alofo from "./templates/Alofo";
+import Gallery from "./components/Gallery";
+import Palette from "./components/Palette";
+import SimpleFlower from "./templates/SimpleFlower";
+import { useState } from "react";
 
 function App() {
-  const [fillColors, setFillColors] = useState(Array(22).fill('white'));
-  const [currentColor, setCurrentColor] = useState('blue');
+  const [fillCount, setFillCount] = useState(22);
+  const [fillColors, setFillColors] = useState(Array(22).fill("white"));
+  const [currentColor, setCurrentColor] = useState("blue");
+
+  function updateFillCount(count) {
+    setFillCount(count);
+    setFillColors(Array(count).fill("white"));
+  }
 
   function onFillColor(fillIndex) {
     let newFillColors = fillColors.slice(0);
@@ -15,18 +23,30 @@ function App() {
   }
 
   function resetTemplate() {
-    setFillColors(Array(22).fill('white'));
+    setFillColors(Array(fillCount).fill("white"));
   }
 
   return (
+    // <Gallery />
     <Flex direction="row">
-      <Box className="template">
-        <SimpleFlower fillColors={fillColors} onFill={onFillColor} />
+      <Box className="template" w="40vw">
+        <SimpleFlower
+          updateFillCount={updateFillCount}
+          fillColors={fillColors}
+          onFill={onFillColor}
+        />
+        {/* <Alofo
+          updateFillCount={updateFillCount}
+          fillColors={fillColors}
+          onFill={onFillColor}
+        /> */}
       </Box>
       <Spacer />
-      <Box p='20px 50px'>
+      <Box p="20px 50px">
         <Palette currentColor={currentColor} changeColor={setCurrentColor} />
-        <Button colorScheme={'blue'} onClick={resetTemplate} mt='10px'>Reset</Button>
+        <Button colorScheme={"blue"} onClick={resetTemplate} mt="10px">
+          Reset
+        </Button>
       </Box>
     </Flex>
   );
