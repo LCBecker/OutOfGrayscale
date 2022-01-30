@@ -5,6 +5,7 @@ import FigmaBox from "./templates/FigmaBox";
 import Gallery from "./components/Gallery";
 import LayeredBoxes from "./templates/LayeredBoxes";
 import Palette from "./components/Palette";
+import Scales from "./templates/Scales";
 import SimpleFlower from "./templates/SimpleFlower";
 import { useState } from "react";
 
@@ -32,7 +33,7 @@ function App() {
     // <Gallery />
     <Flex direction="row">
       <Box className="template" w="40vw">
-        <LayeredBoxes
+        <Scales
           updateFillCount={updateFillCount}
           fillColors={fillColors}
           onFill={onFillColor}
