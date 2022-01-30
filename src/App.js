@@ -1,7 +1,9 @@
 import { Box, Button, Flex, Spacer } from "@chakra-ui/react";
 
 import Alofo from "./templates/Alofo";
+import FigmaBox from "./templates/FigmaBox";
 import Gallery from "./components/Gallery";
+import LayeredBoxes from "./templates/LayeredBoxes";
 import Palette from "./components/Palette";
 import SimpleFlower from "./templates/SimpleFlower";
 import { useState } from "react";
@@ -30,11 +32,16 @@ function App() {
     // <Gallery />
     <Flex direction="row">
       <Box className="template" w="40vw">
-        <SimpleFlower
+        <LayeredBoxes
           updateFillCount={updateFillCount}
           fillColors={fillColors}
           onFill={onFillColor}
         />
+        {/* <SimpleFlower
+          updateFillCount={updateFillCount}
+          fillColors={fillColors}
+          onFill={onFillColor}
+        /> */}
         {/* <Alofo
           updateFillCount={updateFillCount}
           fillColors={fillColors}
