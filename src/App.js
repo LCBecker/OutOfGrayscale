@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 
 import Gallery from "./components/Gallery";
 import Palette from "./components/Palette";
@@ -6,10 +6,11 @@ import Templates from "./components/Templates";
 import { useState } from "react";
 
 function App() {
-  const [view, setView] = useState({ view: "GALLERY", template: null });
+  const [view, setView] = useState("GALLERY");
   const [fillCount, setFillCount] = useState(22);
   const [fillColors, setFillColors] = useState(Array(22).fill("white"));
   const [currentColor, setCurrentColor] = useState("blue");
+  const [templateDetails, setTemplateDetails] = useState({});
 
   function updateFillCount(count) {
     setFillCount(count);
@@ -26,12 +27,19 @@ function App() {
     setFillColors(Array(fillCount).fill("white"));
   }
 
+  function renderDifficulty() {
+    if (fillCount <= 100) return "Easy";
+    if (fillCount > 100 && fillCount < 500) return "Average";
+    return "Advanced";
+  }
+
   function renderView() {
-    if (view.view == "GALLERY") {
+    if (view == "GALLERY") {
       return (
         <Gallery
           onSelectTemplate={(template) => {
-            setView({ view: "TEMPLATE", template: template });
+            setView("TEMPLATE");
+            setTemplateDetails(template);
           }}
         />
       );
@@ -43,9 +51,16 @@ function App() {
             w="60vw"
             mt={"20px"}
             justifyContent={"center"}
+            alignItems={"center"}
+            direction="column"
           >
+            <Heading fontFamily={"cursive"} mb={"10px"}>
+              {templateDetails.displayName}
+            </Heading>
+            <Text>{fillCount} areas to fill</Text>
+            <Text>Difficulty: {renderDifficulty()}</Text>
             <Templates
-              templateId={view.template}
+              templateId={templateDetails.id}
               templateProps={{
                 updateFillCount: updateFillCount,
                 fillColors: fillColors,
@@ -68,10 +83,7 @@ function App() {
                 Reset
               </Button>
               <Spacer />
-              <Button
-                colorScheme={"red"}
-                onClick={() => setView({ view: "GALLERY", template: null })}
-              >
+              <Button colorScheme={"red"} onClick={() => setView("GALLERY")}>
                 Back To Gallery
               </Button>
             </Box>
