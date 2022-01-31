@@ -1,28 +1,15 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 
-import Alofo from "../templates/Alofo";
-import FigmaBox from "../templates/FigmaBox";
-import SimpleFlower from "../templates/SimpleFlower";
+import Templates from "./Templates";
 
-const Gallery = () => {
+const Gallery = ({ onSelectTemplate }) => {
   return (
-    <Grid templateColumns="repeat(5, 1fr)" gap={6}>
-      <GridItem w="150px" h="150px">
-        <SimpleFlower
-          preview={true}
-          svgProps={{ width: "inherit", height: "inherit" }}
-        />
-      </GridItem>
-      <GridItem w="150px" h="150px" bg="blue.500">
-        <FigmaBox
-          preview={true}
-          svgProps={{ width: "inherit", height: "inherit" }}
-        />
-      </GridItem>
-      <GridItem w="150px" h="150px" bg="blue.500" />
-      <GridItem w="150px" h="150px" bg="blue.500" />
-      <GridItem w="150px" h="150px" bg="blue.500" />
-    </Grid>
+    <div>
+      <Heading m={"10"}>Select a Template</Heading>
+      <Flex gap={10} m={"10"}>
+        <Templates forGallery={true} onSelectTemplate={onSelectTemplate} />
+      </Flex>
+    </div>
   );
 };
 

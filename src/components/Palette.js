@@ -8,6 +8,9 @@ import {
 
 const Palette = ({ currentColor, changeColor }) => {
   const colors = [
+    "black",
+    "gray",
+    "white",
     "red",
     "orange",
     "yellow",

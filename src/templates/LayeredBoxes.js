@@ -589,6 +589,7 @@ const LayeredBoxes = ({
       viewBox="0 0 694 694"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...svgProps}
     >
       <rect width="694" height="694" fill="#E5E5E5" />
       {renderFillables()}

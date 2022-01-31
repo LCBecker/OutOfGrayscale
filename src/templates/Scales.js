@@ -479,6 +479,7 @@ const Scales = ({
       viewBox="0 0 694 575"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...svgProps}
     >
       <rect width="694" height="575" fill="#E5E5E5" />
       {renderFillables()}
