@@ -7,27 +7,17 @@ const Gallery = ({ onSelectTemplate }) => {
     <div
       style={{
         background:
-          "linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%)",
+          "linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(255,255,255,1) 100%)",
+        height: "100%",
       }}
     >
-      <Box p={"20px 50px"}>
-        <Heading
-          size={"3xl"}
-          backgroundImage={
-            "linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(249,255,0,1) 10%, rgba(0,212,255,1) 20%)"
-          }
-          backgroundColor="white"
-          backgroundSize="100%"
-          backgroundClip={"text"}
-          pb={"10px"}
-        >
-          Out of Grayscale
-        </Heading>
-        <Heading size={"sm"} textColor={"white"}>
-          <i>An Online Coloring Book</i>
-        </Heading>
+      <Box>
+        <img
+          src={process.env.PUBLIC_URL + "/Logo.svg"}
+          alt="Out of Grayscale Logo"
+        />
       </Box>
-      <Heading m={"10"} textColor="white">
+      <Heading m={"10"} textColor={"#fff"}>
         Select a Template
       </Heading>
       <Flex gap={10} m={"10"}>

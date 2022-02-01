@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import Flowers from "../templates/Flowers";
 import LayeredBoxes from "../templates/LayeredBoxes";
 import React from "react";
@@ -35,13 +35,16 @@ const Templates = ({
     };
     return Object.keys(templates).map((template) => {
       return (
-        <Box
+        <Flex
+          flexDirection={"column"}
+          alignItems={"center"}
           w="300px"
           h="300px"
-          //p="20px"
           _hover={{
             transform: "scale(1.1)",
-            border: "2px solid blue",
+            "&>p": {
+              fontWeight: "bold",
+            },
           }}
           onClick={() => onSelectTemplate(templates[template])}
         >
@@ -49,7 +52,7 @@ const Templates = ({
             ...previewProps,
           })}
           <Text>{templates[template].displayName}</Text>
-        </Box>
+        </Flex>
       );
     });
   }
