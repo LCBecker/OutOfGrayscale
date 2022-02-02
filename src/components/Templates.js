@@ -3,6 +3,8 @@ import Flowers from "../templates/Flowers";
 import LayeredBoxes from "../templates/LayeredBoxes";
 import React from "react";
 import Scales from "../templates/Scales";
+import Stars from "../templates/Stars";
+import Snowflake from "../templates/Snowflake";
 
 const Templates = ({
   templateId,
@@ -21,10 +23,20 @@ const Templates = ({
       displayName: "Layered Boxes",
       component: LayeredBoxes,
     },
+    stars: {
+      id: "stars",
+      displayName: "Stars",
+      component: Stars,
+    },
     flowers: {
       id: "flowers",
       displayName: "Flowers",
       component: Flowers,
+    },
+    snowflake: {
+      id: "snowflake",
+      displayName: "Snowflake",
+      component: Snowflake,
     },
   };
   if (forGallery) {
